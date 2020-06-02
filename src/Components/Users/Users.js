@@ -5,7 +5,14 @@ import Card from '../Card/Card';
 const Users = () => {
     const [userInfo,updateUserInfo]=useState([]);
     useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/users')
+        fetch('https://jsonplaceholder.typicode.com/users',
+        {
+        mode: 'cors',
+        headers: {
+        'Access-Control-Allow-Origin': ''
+        }
+        })
+        
         .then(res=>res.json())
         .then(data=>updateUserInfo(data));
 
